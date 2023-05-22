@@ -1,4 +1,5 @@
-import 'package:delivery_guy/screens/splash/view.dart';
+import 'package:delivery_guy/screens/dashBoard/view.dart';
+import 'package:delivery_guy/screens/share/my_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,23 +35,23 @@ class _MySignUp extends State<MySignUp> {
             ),
             Container(
               padding: EdgeInsets.only(left: 50.w, top: 170.h),
-              child: const Text(
+              child: Text(
                 'Delivery',
                 style: TextStyle(
                     color: Colors.orangeAccent,
                     fontStyle: FontStyle.italic,
-                    fontSize: 25),
+                    fontSize: 25.sp),
               ),
             ),
             Container(
               padding: EdgeInsets.only(left: 160.w, top: 60.h),
-              child: const Text(
+              child: Text(
                 'Create account',
                 style: TextStyle(
                     color: Colors.orange,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.italic,
-                    fontSize: 40),
+                    fontSize: 40.sp),
               ),
             ),
             SingleChildScrollView(
@@ -61,152 +62,48 @@ class _MySignUp extends State<MySignUp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(left: 35, right: 35),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 35.w,
+                      ),
                       child: Column(
                         children: [
-                          TextField(
-                            style: const TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black38,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                hintText: "Name",
-                                hintStyle: const TextStyle(color: Colors.black38),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
+                          MyInput(
+                            hintText: 'Name',
                           ),
-                          const SizedBox(
-                            height: 25,
+                          SizedBox(
+                            height: 25.h,
                           ),
-                          TextField(
-                            style: const TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black38,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                hintText: "Email",
-                                hintStyle: const TextStyle(color: Colors.black38),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
+                          MyInput(hintText: "Email"),
+                          SizedBox(
+                            height: 25.h,
                           ),
-                          const SizedBox(
-                            height: 25,
+                          MyInput(hintText: "Password", isPassword: true),
+                          SizedBox(
+                            height: 25.h,
                           ),
-                          TextField(
-                            style: const TextStyle(color: Colors.black),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black38,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                hintText: "Password",
-                                hintStyle: const TextStyle(color: Colors.black38),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
+                          MyInput(
+                            hintText: "Confirm Password",
+                            isPassword: true,
                           ),
-                          const SizedBox(
-                            height: 25,
+                          SizedBox(
+                            height: 25.h,
                           ),
-                          TextField(
-                            style: const TextStyle(color: Colors.black),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black38,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                hintText: "Confirm Password",
-                                hintStyle: const TextStyle(color: Colors.black38),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          TextField(
-                            style: const TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black38,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                hintText: "Phone",
-                                hintStyle: const TextStyle(color: Colors.black38),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
-                          ),
-                          const SizedBox(
-                            height: 40,
+                          MyInput(hintText: "Phone"),
+                          SizedBox(
+                            height: 40.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              const Center(
+                              Center(
                                   child: Text(
                                 'Sign Up      ',
                                 style: TextStyle(
-                                    fontSize: 27, fontWeight: FontWeight.w700),
+                                    fontSize: 27.sp,
+                                    fontWeight: FontWeight.w700),
                               )),
                               CircleAvatar(
-                                radius: 30,
+                                radius: 30.r,
                                 backgroundColor: const Color(0xff4c505b),
                                 child: IconButton(
                                     color: Colors.white,
@@ -215,7 +112,7 @@ class _MySignUp extends State<MySignUp> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const Start_up_Screen()));
+                                                  const DashBoardScreen()));
                                     },
                                     icon: const Icon(
                                       Icons.arrow_forward,
@@ -223,8 +120,8 @@ class _MySignUp extends State<MySignUp> {
                               )
                             ],
                           ),
-                          const SizedBox(
-                            height: 35,
+                          SizedBox(
+                            height: 35.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -234,13 +131,13 @@ class _MySignUp extends State<MySignUp> {
                                   Navigator.pop(context);
                                 },
                                 style: const ButtonStyle(),
-                                child: const Text(
+                                child:  Text(
                                   'Sign In',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
                                       color: Colors.black,
-                                      fontSize: 25,
+                                      fontSize: 25.sp,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ),

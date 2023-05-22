@@ -1,4 +1,5 @@
 import 'package:delivery_guy/screens/Products_det/component/details_view.dart';
+import 'package:delivery_guy/screens/map/view.dart';
 import 'package:delivery_guy/screens/share/bottomBar.dart';
 import 'package:delivery_guy/screens/share/my_app_bar.dart';
 import 'package:delivery_guy/screens/share/drawer/view.dart';
@@ -17,8 +18,7 @@ class ProductDetailsScreen extends StatefulWidget {
     required this.location,
     required this.time,
   }) : super(key: key);
-   bool state;
-   bool busy;
+   bool state,busy;
   String image, mail, details, location, time;
   int price;
 
@@ -34,7 +34,6 @@ class _product_detailsState extends State<ProductDetailsScreen> {
         status: widget.state,
         busy: widget.busy,
       ),
-      //MyDrawer(status: widget.state, ),
       backgroundColor: const Color(0xffF5F5F5),
       appBar: const MyAppBar(),
       body: SingleChildScrollView(
@@ -61,11 +60,13 @@ class _product_detailsState extends State<ProductDetailsScreen> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Text(
-                'Order Information',
-                style: TextStyle(
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.bold,
+              child: Center(
+                child: Text(
+                  'Order Information',
+                  style: TextStyle(
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -173,6 +174,7 @@ class _product_detailsState extends State<ProductDetailsScreen> {
                       setState(() {
                         widget.state = true;
                         widget.busy = true;
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MyMap(),));
                       });
                     },
                     style: ButtonStyle(
@@ -242,7 +244,7 @@ class _product_detailsState extends State<ProductDetailsScreen> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

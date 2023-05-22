@@ -20,20 +20,20 @@ class MyNavigationBar extends StatelessWidget {
             tabBackgroundColor: Colors.orangeAccent.shade700,
             padding:  EdgeInsets.all(16.r),
             tabs:  [
-              GButton(
-                icon: Icons.home_filled,
-                text: 'Home',
+               GButton(
+                icon: Icons.home_filled,iconSize: 30,
+                text: 'Home',textSize: 30.sp,
+              ),
+               GButton(
+                icon: Icons.airport_shuttle_sharp,iconSize: 30,
+                text: 'Delivery',textSize: 30.sp,
+              ),
+               GButton(
+                icon: Icons.watch_later_outlined,iconSize: 30,
+                text: 'Timer',textSize: 30.sp,
               ),
               GButton(
-                icon: Icons.airport_shuttle_sharp,
-                text: 'Delivery',
-              ),
-              GButton(
-                icon: Icons.watch_later_outlined,
-                text: 'Timer',
-              ),
-              GButton(
-                icon: Icons.account_circle_outlined,iconSize: 30.sp,
+                icon: Icons.account_circle_outlined,iconSize: 30,
                 text: 'Account',textSize: 30.sp,
               ),
             ]),

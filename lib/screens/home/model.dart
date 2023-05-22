@@ -7,7 +7,7 @@ class DataJoe {
   late List price;
   late List details;
 
-  DataJoe(Map<String, dynamic> Screen) {
+  DataJoe(Map<String, List> Screen) {
     imagePath = [
       "assets/images/pl.jpg",
       'assets/images/20.png',

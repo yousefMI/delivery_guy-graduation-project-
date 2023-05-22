@@ -1,42 +1,68 @@
+import 'package:delivery_guy/screens/home/components/status_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StatusComponent extends StatelessWidget {
-   StatusComponent({Key? key,required this.color,required this.image,required this.name,required this.number}) : super(key: key);
-int color;
-Widget image;
-String name;
-int number;
+  const StatusComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 130.w,
-      height: 130.h,
-      decoration: BoxDecoration(
-        color: Color(color).withOpacity(0.2),
-        borderRadius: BorderRadius.circular(20.r),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children:  [
-          const Spacer(
-            flex: 2,
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 15.h),
+          child: Row(
+            children: [
+              const Spacer(
+                flex: 2,
+              ),
+              // ان دى ال card اللى جوة status component
+              StatusComponentCard(
+                  color: 0xFF18FFFF,
+                  image: const Icon(Icons.airport_shuttle_sharp),
+                  name: 'Complete Delivery',
+                  number: 27),
+              const Spacer(
+                flex: 2,
+              ),
+              StatusComponentCard(
+                  color: 0xFFFFFF00,
+                  image: const Icon(Icons.delivery_dining_outlined),
+                  name: 'Pending Delivery',
+                  number: 9),
+              const Spacer(
+                flex: 2,
+              ),
+            ],
           ),
-          image,
-          const Spacer(
-            flex: 1,
+        ),
+        Padding(
+          padding: EdgeInsets.only(bottom: 15.h),
+          child: Row(
+            children: [
+              const Spacer(
+                flex: 2,
+              ),
+              StatusComponentCard(
+                  color: 0xFFFF4081,
+                  image: const Icon(Icons.airport_shuttle_sharp),
+                  name: 'Cancel Delivery',
+                  number: 5),
+              const Spacer(
+                flex: 2,
+              ),
+              StatusComponentCard(
+                  color: 0xFF40C4FF,
+                  image: const Icon(Icons.delivery_dining_outlined),
+                  name: 'Return Delivery',
+                  number: 10),
+              const Spacer(
+                flex: 2,
+              ),
+            ],
           ),
-          Text(name),
-          const Spacer(
-            flex: 1,
-          ),
-          Text('$number'),
-          const Spacer(
-            flex: 2,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -11,7 +11,7 @@ class OrderDetails extends StatelessWidget {
     required this.Screen,
   }) : super(key: key);
   String imagePath, orderName, orderAdress, orderTime;
- Widget Screen;
+  Widget Screen;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +32,10 @@ class OrderDetails extends StatelessWidget {
               height: 130.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
-                image: DecorationImage(
-                    image: AssetImage(imagePath), fit: BoxFit.fill),
+              ),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.fill,
               ),
             ),
             SizedBox(
@@ -45,7 +47,8 @@ class OrderDetails extends StatelessWidget {
                 Text(
                   orderName,
                   style: TextStyle(
-                    fontSize: 15.sp,
+                    fontSize: 15,
+                    overflow: TextOverflow.ellipsis,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -54,9 +57,13 @@ class OrderDetails extends StatelessWidget {
                     Icon(
                       Icons.location_on_outlined,
                       color: Colors.orange,
-                      size: 15.sp,
+                      size: 15,
                     ),
-                    Text(orderAdress,style: TextStyle(fontSize: 15.sp)),
+
+                       Text(orderAdress, overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                             fontSize: orderAdress.length > 25 ?12: 15
+                          )),
                   ],
                 ),
                 Row(
@@ -64,9 +71,9 @@ class OrderDetails extends StatelessWidget {
                     Icon(
                       Icons.watch_later_outlined,
                       color: Colors.orange,
-                      size: 15.sp,
+                      size: 15,
                     ),
-                    Text(orderTime,style: TextStyle(fontSize: 15.sp)),
+                    Text(orderTime, style: TextStyle(fontSize: 15)),
                   ],
                 ),
                 SizedBox(
@@ -82,14 +89,14 @@ class OrderDetails extends StatelessWidget {
                       )),
                   onPressed: () {
                     //Screen;
-                     Navigator.push(context,
-                         MaterialPageRoute(builder: (context) => Screen));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Screen));
                   },
                   child: Center(
                       child: Text(
-                    'Order Details',
-                    style: TextStyle(fontSize: 15.sp),
-                  )),
+                        'Order Details',
+                        style: TextStyle(fontSize: 15),
+                      )),
                 ),
               ],
             ),

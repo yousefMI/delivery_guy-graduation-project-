@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyInput extends StatelessWidget {
    MyInput({Key? key,required this.hintText,this.isPassword=false}) : super(key: key);
@@ -14,8 +15,14 @@ bool isPassword;
           filled: true,
           hintText: hintText,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
+            borderRadius: BorderRadius.circular(10.r),
+          ), focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.r),
+        borderSide: const BorderSide(
+          color: Colors.black,
+        ),
+      ),),
+
     );
   }
 }
