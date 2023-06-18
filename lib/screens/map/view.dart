@@ -52,6 +52,7 @@ class _MyMapState extends State<MyMap> {
     super.initState();
     getPostion();
     polylines;
+    s();
     positionStream = Geolocator.getPositionStream().listen(
             (Position? position) {
               changeMarker(position!.latitude, position.longitude);
@@ -121,7 +122,7 @@ class _MyMapState extends State<MyMap> {
                     model.results.length,
                     (index) => PopupMenuItem(
                       child: Text(model.results[index].name),
-                      onTap: () async {
+                      onTap: ()  {
                         markers.add(Marker(
                             markerId: MarkerId("1"),
                             position: LatLng(
@@ -129,15 +130,7 @@ class _MyMapState extends State<MyMap> {
                                 model.results[index].lng.toDouble())));
                         goTo(model.results[index].lat.toDouble(),
                             model.results[index].lng.toDouble());
-                          final dis = await Dio().get(
-                              "https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf62489d579e9c9f3141f89eb7dfc4b2705bf8&start=${y},${x}&end=${markers.last.position.longitude},${markers.last.position.latitude}");
-                        //${markers.position.latitude},${markers.last.position.longitude}
-                          final model1 = DrawLineData.fromJson(dis.data);
-                          polylines.add(Polyline(
-                              polylineId: PolylineId("ds"),
-                              color: Colors.blueAccent,
-                              width: 10,
-                              points: model1.listOfPoints));
+                         s();
                           setState(() {});
                       },
                     ),
@@ -155,5 +148,16 @@ class _MyMapState extends State<MyMap> {
     final GoogleMapController controller = await completer.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(target: LatLng(lat, lng), zoom: 16)));
+  }
+  s()async{
+    final dis = await Dio().get(
+        "https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf62489d579e9c9f3141f89eb7dfc4b2705bf8&start=${y},${x}&end=${markers.last.position.longitude},${markers.last.position.latitude}");
+    //${markers.position.latitude},${markers.last.position.longitude}
+    final model1 = DrawLineData.fromJson(dis.data);
+    polylines.add(Polyline(
+        polylineId: PolylineId("ds"),
+        color: Colors.blueAccent,
+        width: 10,
+        points: model1.listOfPoints));
   }
 }
